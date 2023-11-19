@@ -90,7 +90,7 @@ trait HasWallet
      *
      * @return MorphMany<Transaction>
      */
-    public function transactions(): MorphMany
+    public function operations(): MorphMany
     {
         return app(CastServiceInterface::class)
             ->getHolder($this)

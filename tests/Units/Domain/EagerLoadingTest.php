@@ -49,7 +49,7 @@ final class EagerLoadingTest extends TestCase
         self::assertCount(1, array_unique($balances));
     }
 
-    public function testTransferTransactions(): void
+    public function testTransferoperations(): void
     {
         /** @var Buyer $user1 */
         /** @var Buyer $user2 */

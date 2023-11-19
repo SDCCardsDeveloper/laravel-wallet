@@ -9,16 +9,16 @@ If you only need to filter one wallet at a time, now you can use the `walletTran
 
 // Before version 7.3
 $query = $wallet
-    ->transactions()
+    ->operations()
     ->where('wallet_id', $wallet->getKey());
 
 // 7.3+
-$query = $wallet->walletTransactions();
+$query = $wallet->walletoperations();
 ```
 
 Let's take a look at a livelier code example:
 ```php
-$user->transactions()->count(); // 0
+$user->operations()->count(); // 0
 
 // default wallet
 $user->deposit(100);
@@ -33,16 +33,16 @@ $usd->deposit(100);
 $eur = $user->createWallet(['name' => 'EUR']);
 $eur->deposit(100);
 
-$user->transactions()->count(); // 5
-$user->wallet->transactions()->count(); // 5
-$usd->transactions()->count(); // 5
-$eur->transactions()->count(); // 5
+$user->operations()->count(); // 5
+$user->wallet->operations()->count(); // 5
+$usd->operations()->count(); // 5
+$eur->operations()->count(); // 5
 // the transactions method returns data relative to the owner of the wallet, for all transactions
 
-$user->walletTransactions()->count(); // 3. we get the default wallet
-$user->wallet->walletTransactions()->count(); // 3
-$usd->walletTransactions()->count(); // 1
-$eur->walletTransactions()->count(); // 1
+$user->walletoperations()->count(); // 3. we get the default wallet
+$user->wallet->walletoperations()->count(); // 3
+$usd->walletoperations()->count(); // 1
+$eur->walletoperations()->count(); // 1
 ```
 
 It worked! 

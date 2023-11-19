@@ -62,7 +62,7 @@ final class DiscountTest extends TestCase
         self::assertSame($product->getKey(), $transfer->to->holder->getKey());
     }
 
-    public function testItemTransactions(): void
+    public function testItemoperations(): void
     {
         /** @var Buyer $buyer */
         $buyer = BuyerFactory::new()->create();
@@ -88,13 +88,13 @@ final class DiscountTest extends TestCase
         self::assertInstanceOf(Transaction::class, $deposit);
 
         self::assertTrue($withdraw->is(
-            $buyer->transactions()
+            $buyer->operations()
                 ->where('type', Transaction::TYPE_WITHDRAW)
                 ->latest()
                 ->first()
         ));
 
-        self::assertTrue($deposit->is($product->transactions()->latest()->first()));
+        self::assertTrue($deposit->is($product->operations()->latest()->first()));
     }
 
     public function testRefund(): void

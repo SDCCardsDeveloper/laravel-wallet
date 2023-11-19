@@ -1034,7 +1034,7 @@ The operation is now executed in the transaction and updates the new `refund` fi
         - protected change(int $amount, ?array $meta, bool $confirmed): Transaction
         - public resetBalance(): void
     - relations:
-        - public transactions(): MorphMany
+        - public operations(): MorphMany
         - public transfers(): MorphMany
     - magic property 
         - public getBalanceAttribute(): int

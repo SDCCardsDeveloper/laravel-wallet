@@ -55,7 +55,7 @@ final class BlockTest extends TestCase
         self::assertFalse($transfer->deposit->confirmed);
 
         /** @var Transaction $transaction */
-        $transaction = $buyer2->wallet->walletTransactions()
+        $transaction = $buyer2->wallet->walletoperations()
             ->where('meta->type', 'block')
             ->where('confirmed', false)
             ->first()
